@@ -1,16 +1,19 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
-import FruitList from '../components/FruitList';
+import { View, Text, StyleSheet, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import FruitList from "../components/FruitList";
+import LabButton from "../components/push";
 
 export default function Index() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to My Fruit App!</Text>
-      <Pressable 
-        style={styles.button}
-        onPress={() => alert('Button pressed!')}
-      >
-        <Text style={styles.buttonText}>Click Me!</Text>
-      </Pressable>
+
+      {/* Button to Navigate to Lab4 */}
+      <Button title="Go to Lab4" onPress={() => navigation.navigate("Lab4")} />
+
+      <LabButton />
       <FruitList />
     </View>
   );
@@ -19,24 +22,13 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    padding: 15,
-    borderRadius: 8,
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
