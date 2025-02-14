@@ -1,10 +1,15 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import FruitList from "../components/FruitList";
 import LabButton from "../components/push";
 
+type RootStackParamList = {
+  Lab4: undefined;
+};
+
 export default function Index() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
